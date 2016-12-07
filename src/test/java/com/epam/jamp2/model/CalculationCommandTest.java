@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -13,7 +14,7 @@ public class CalculationCommandTest {
     @Test
     public void shouldParseFromString() throws CommandFormatException {
         CalculationCommand parsedCommand = CalculationCommand.parseFromString("usd100.5+200.99654=");
-        assertTrue(parsedCommand.getLeftOperand().getCurrencyCode().get().equals("usd"));
+        assertEquals("usd", parsedCommand.getLeftOperand().getCurrencyCode().get());
         assertTrue(parsedCommand.getLeftOperand().getValue().equals(BigDecimal.valueOf(100.5)));
         assertTrue(!parsedCommand.getRightOperand().getCurrencyCode().isPresent());
         assertTrue(parsedCommand.getRightOperand().getValue().equals(BigDecimal.valueOf(200.99654)));
