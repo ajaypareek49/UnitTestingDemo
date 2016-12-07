@@ -49,7 +49,7 @@ public class FxRatesServiceImpIT {
     }
 
     @Test
-    public void should() throws Exception {
+    public void shouldReturnHttp404() throws Exception {
         mockMvc.perform(get("test")).andExpect(status().isNotFound());
     }
 }
