@@ -24,4 +24,9 @@ public class CalculationCommandTest {
         assertTrue(parsedCommand.getOperation().equals(Operation.ADD));
         assertTrue(!parsedCommand.getResultCurrencyCode().isPresent());
     }
+
+    @Test(expected = CommandFormatException.class)
+    public void shouldThrowFormatExceptionWhenWrongFormat() throws CommandFormatException {
+        CalculationCommand parsedCommand = CalculationCommand.parseFromString("test");
+    }
 }
