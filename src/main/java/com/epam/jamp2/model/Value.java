@@ -1,7 +1,5 @@
 package com.epam.jamp2.model;
 
-import com.sun.istack.internal.Nullable;
-
 import java.math.BigDecimal;
 import java.util.Optional;
 
@@ -12,7 +10,7 @@ public class Value {
     private Optional<String> currencyCode;
     private BigDecimal value;
 
-    public Value(@Nullable String currencyCode, BigDecimal value) {
+    public Value(String currencyCode, BigDecimal value) {
         this.currencyCode = Optional.ofNullable(currencyCode);
         this.value = value;
     }
